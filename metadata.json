@@ -1,0 +1,6 @@
+{
+  "name": "Tutor RAG Python",
+  "description": "Um chatbot educacional para iniciantes em Python que usa RAG para fornecer explicações pedagógicas passo-a-passo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
