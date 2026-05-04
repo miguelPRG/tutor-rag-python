@@ -3,9 +3,23 @@ from retriever import Retriever
 from generator import Generator
 from ingest import ingest_documents
 from config import CHROMA_PATH, OLLAMA_MODEL_NAME
+from pathlib import Path
 
 # Configuração da página
 st.set_page_config(page_title="Tutor RAG Python", page_icon="🐍", layout="wide")
+
+# Indexar corpus automaticamente ao iniciar
+@st.cache_resource
+def initialize_corpus():
+    """Verifica e indexa o corpus se necessário."""
+    chroma_db_file = CHROMA_PATH / "chroma.sqlite3"
+    if not chroma_db_file.exists():
+        with st.spinner("📚 A indexar corpus pela primeira vez..."):
+            ingest_documents()
+    return True
+
+# Executar inicialização
+initialize_corpus()
 
 # Estilos CSS Customizados para o tema Frosted Glass
 st.markdown("""

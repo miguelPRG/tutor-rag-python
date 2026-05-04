@@ -14,7 +14,7 @@ O objetivo é fornecer respostas pedagógicas que não entreguem a solução de 
 - Python 3.11 ou superior.
 - Gestor de pacotes `uv` (recomendado).
 - Chave de API do Google Gemini (Desativado: agora usa Ollama).
-- Ollama instalado e a correr localmente com o modelo `llama3.2:3b`.
+- Ollama instalado e a correr localmente com o modelo `llama3.2`.
 
 ## Instalação
 
@@ -39,7 +39,7 @@ O objetivo é fornecer respostas pedagógicas que não entreguem a solução de 
 
 1. **Garantir que o Ollama tem o modelo**:
    ```bash
-   ollama pull llama3.2:3b
+   ollama pull llama3.2
    ```
 
 2. **Indexar o corpus** (necessário na primeira execução):
@@ -56,5 +56,5 @@ O objetivo é fornecer respostas pedagógicas que não entreguem a solução de 
 - **Streamlit**: Interface web.
 - **ChromaDB**: Base de dados vetorial.
 - **Sentence-Transformers**: Embeddings locais (`all-MiniLM-L6-v2`).
-- **Ollama**: Modelo de linguagem local (`llama3.2:3b`).
+- **Ollama**: Modelo de linguagem local (`llama3.2`).
 - **uv**: Gestão de pacotes e ambiente virtual.

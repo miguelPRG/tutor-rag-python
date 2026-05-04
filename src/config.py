@@ -13,7 +13,7 @@ CHROMA_PATH = DATA_DIR / "chroma"
 
 # Configurações de Modelos
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-OLLAMA_MODEL_NAME = os.getenv("OLLAMA_MODEL", "llama3.2:3b")
+OLLAMA_MODEL_NAME = os.getenv("OLLAMA_MODEL", "llama3.2")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 
 # Garantir que pastas existem
