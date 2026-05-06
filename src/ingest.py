@@ -38,8 +38,8 @@ def ingest_documents():
         # Gerar embeddings
         embeddings = model.encode(documents).tolist()
         
-        # Adicionar à coleção
-        collection.add(
+        # Adicionar ou atualizar à coleção (upsert evita erro de IDs duplicados)
+        collection.upsert(
             ids=ids,
             embeddings=embeddings,
             documents=documents,

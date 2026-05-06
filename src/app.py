@@ -3,7 +3,6 @@ from retriever import Retriever
 from generator import Generator
 from ingest import ingest_documents
 from config import CHROMA_PATH, OLLAMA_MODEL_NAME
-from pathlib import Path
 
 # Configuração da página
 st.set_page_config(page_title="Tutor RAG Python", page_icon="🐍", layout="wide")
