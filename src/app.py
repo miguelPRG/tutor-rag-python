@@ -7,18 +7,7 @@ from config import CHROMA_PATH, OLLAMA_MODEL_NAME
 # Configuração da página
 st.set_page_config(page_title="Tutor RAG Python", page_icon="🐍", layout="wide")
 
-# Indexar corpus automaticamente ao iniciar
-@st.cache_resource
-def initialize_corpus():
-    """Verifica e indexa o corpus se necessário."""
-    chroma_db_file = CHROMA_PATH / "chroma.sqlite3"
-    if not chroma_db_file.exists():
-        with st.spinner("📚 A indexar corpus pela primeira vez..."):
-            ingest_documents()
-    return True
 
-# Executar inicialização
-initialize_corpus()
 
 # Estilos CSS Customizados para o tema Frosted Glass
 st.markdown("""
@@ -107,7 +96,21 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
     
-    if st.button("Re-indexar Corpus Local"):
+    st.markdown("### Adicionar Materiais")
+    uploaded_files = st.file_uploader("Carrega ficheiros Markdown (.md)", type=["md"], accept_multiple_files=True)
+    
+    if uploaded_files:
+        if st.button("Guardar Ficheiros", use_container_width=True):
+            from config import CORPUS_DIR
+            for uploaded_file in uploaded_files:
+                file_path = CORPUS_DIR / uploaded_file.name
+                with open(file_path, "wb") as f:
+                    f.write(uploaded_file.getbuffer())
+            st.success(f"{len(uploaded_files)} ficheiro(s) guardado(s)! Podes agora reindexar o corpus.")
+            
+    st.markdown("---")
+    
+    if st.button("Re-indexar Corpus Local", use_container_width=True):
         with st.status("A processar documentos...", expanded=True) as status:
             status.update(label="A indexar documentos no ChromaDB...", state="running")
             ingest_documents()

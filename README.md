@@ -58,3 +58,7 @@ O objetivo é fornecer respostas pedagógicas que não entreguem a solução de 
 - **Sentence-Transformers**: Embeddings locais (`entence-transformers/all-mpnet-base-v2`).
 - **Ollama**: Modelo de linguagem local (`mistral:latest`).
 - **uv**: Gestão de pacotes e ambiente virtual.
+
+## Formulário Google Docs
+
+[Por favor responda a este formulário para feedback do projeto](https://github.com/miguelPRG/tutor-rag-python)

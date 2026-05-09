@@ -19,3 +19,4 @@ OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 # Garantir que pastas existem
 DATA_DIR.mkdir(exist_ok=True)
 CHROMA_PATH.mkdir(exist_ok=True)
+CORPUS_DIR.mkdir(exist_ok=True)
